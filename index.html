@@ -70,8 +70,9 @@
             showStatus("Söker efter klocka...", "info");
             
             // Leta efter en enhet som stöder Garmins standard-kommunikationstjänst
-            const device = await navigator.bluetooth.requestDevice({
-                filters: [{ services: [GARMIN_SERVICE_UUID] }]
+                const device = await navigator.bluetooth.requestDevice({
+                acceptAllDevices: true,
+                optionalServices: [GARMIN_SERVICE_UUID]
             });
 
             showStatus("Ansluter till enhet...", "info");
